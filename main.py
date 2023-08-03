@@ -50,7 +50,11 @@ def get_users_convert_date(users_date: datetime) -> datetime:
 def get_weekday(name_user: str, year_birthday: datetime) -> dict:
     # print(year_birthday.weekday())
     if year_birthday.weekday() == 5:
-        # if birthday in Saturday or Sunday , than add to Monday
+        # if birthday in Saturday, than add to Monday
+        dict_result['Monday'].append(name_user)
+
+    elif year_birthday.weekday() == 6:
+        # if birthday in Sunday , than add to Monday
         dict_result['Monday'].append(name_user)
 
     else:
