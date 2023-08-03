@@ -32,7 +32,7 @@ def get_start_point() -> datetime:
     current_date_zero_time = current_full.replace(
         hour=00, minute=00, second=00)  # set time 00-00-00
     if current_weekday != 0:
-        start_point = current_date_zero_time - timedelta(days=3)
+        start_point = current_date_zero_time - timedelta(days=current_weekday)
         return start_point
     return current_date_zero_time
 
