@@ -64,15 +64,12 @@ def get_weekday(name_user: str, year_birthday: datetime) -> dict:
 
 
 def convert_dict_to_str(dict_result: dict) -> str:
-    # print(dict_result)
     full_result = ''
 
     for weekday, name in dict_result.items():
         if name:
-            # print(f"{weekday}: {', '.join(name)}")
             full_result += f"{weekday}: {', '.join(name)} \n"
 
-    # print(full_result)
     return full_result
 
 
