@@ -72,7 +72,7 @@ def convert_dict_to_str(dict_result: dict) -> str:
     return full_result
 
 
-def get_birthdays_per_week(users: list):
+def get_birthdays_per_week(users: list) -> str:
     start_point = get_start_point()         # get start date
     # print(f"Start point: {start_point}")   # print start point
     # call get_end_point() func and send start_point value
