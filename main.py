@@ -51,10 +51,6 @@ def get_weekday(name_user: str, year_birthday: datetime) -> dict:
 
 
 def convert_dict_to_str(dict_result: dict) -> str:
-    # full_result = ''
-    # for weekday, name in dict_result.items():
-    # full_result = ''.join(
-    #     [f"{weekday}: {', '.join(name)} for {weekday}, {name} in {dict_result}"])
     full_result = "\n".join(
         [f"{weekday}: {', '.join(name)}" for weekday, name in dict_result.items() if name])
 
@@ -75,16 +71,10 @@ def get_birthdays_per_week(users: list) -> str:
         user['birthday'] = datetime.replace(
             user['birthday'], year=current_year)  # update year birthday (change -> to current year)
 
-    delta = timedelta(days=1)
+        # print(user)
 
-    while (start_point.date() <= end_point.date()):  # date iteration
-        for i in users:
-            if i['birthday'].date() == start_point.date():  # compare dates
-                # print(i['name'], i['birthday'])
-                get_weekday(i['name'], i['birthday'])
-
-        start_point += delta
-    # print(dict_result)
+        if start_point.date() <= user['birthday'].date() <= end_point.date():
+            get_weekday(user['name'], user['birthday'])
 
     print(convert_dict_to_str(dict_result))
 
