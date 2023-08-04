@@ -58,20 +58,13 @@ def convert_dict_to_str(dict_result: dict) -> str:
 
 
 def get_birthdays_per_week(users: list) -> str:
-    start_point = get_start_point()         # get start date
-    # print(f"Start point: {start_point}")   # print start point
-    # call get_end_point() func and send start_point value
-    end_point = get_end_point(start_point)
-    # print(f"End point: {end_point}")       # print end point
+    start_point = get_start_point()          # get start date
+    end_point = get_end_point(start_point)   # get end date
 
+    current_year = datetime.now().year
     for user in users:
-        current_year = datetime.now().year
-        # new_date = datetime.replace(user['birthday'], year=current_year)
-
         user['birthday'] = datetime.replace(
             user['birthday'], year=current_year)  # update year birthday (change -> to current year)
-
-        # print(user)
 
         if start_point.date() <= user['birthday'].date() <= end_point.date():
             get_weekday(user['name'], user['birthday'])
