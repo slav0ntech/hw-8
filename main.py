@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-
 dict_result = {
     'Monday': [],
     'Tuesdayy': [],
@@ -24,12 +23,11 @@ dict_table_weekday = {
 
 def get_start_point() -> datetime:
 
-    current_full = datetime.now()
     current_weekday = datetime.now().weekday()
-    current_date = datetime.now().date()
-
+    current_date = datetime.now()
+    # current_date_zero_time= current_full.replace(hour=00, minute=00, second=00) #  set time 00-00-00
     if current_weekday != 0:
-        current_date = current_full - timedelta(days=current_weekday)
+        current_date = current_date - timedelta(days=current_weekday)
         return current_date
     return current_date
 
