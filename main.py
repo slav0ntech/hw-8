@@ -48,18 +48,15 @@ def get_users_convert_date(users_date: datetime) -> datetime:
 
 
 def get_weekday(name_user: str, year_birthday: datetime) -> dict:
-    # print(year_birthday.weekday())
-    if year_birthday.weekday() == 5:
-        # if birthday in Saturday, than add to Monday
-        dict_result['Monday'].append(name_user)
+    weekday = year_birthday.weekday()
 
-    elif year_birthday.weekday() == 6:
-        # if birthday in Sunday , than add to Monday
-        dict_result['Monday'].append(name_user)
+    if weekday in [5, 6]:  # checking for day in weekdays. If that -> change to Monday and add to dict_result
+        weekday = 0
+        dict_result[dict_table_weekday[weekday]].append(name_user)
+        return dict_result
 
     else:
-        dict_result[dict_table_weekday[year_birthday.weekday()]].append(
-            name_user)  # add to our dict: founded names and compared dates
+        dict_result[dict_table_weekday[weekday]].append(name_user)
     return dict_result
 
 
