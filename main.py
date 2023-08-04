@@ -61,13 +61,13 @@ def get_weekday(name_user: str, year_birthday: datetime) -> dict:
 
 
 def convert_dict_to_str(dict_result: dict) -> str:
-    full_result = ''
+    # full_result = ''
 
-    for weekday, name in dict_result.items():
-        # full_result = ''.join(
-        #     [f"{weekday}: {', '.join(name)} for {weekday}, {name} in {dict_result}"])
-        full_result = "\n".join(
-            [f"{weekday}: {', '.join(name)}" for weekday, name in dict_result.items() if name])
+    # for weekday, name in dict_result.items():
+    # full_result = ''.join(
+    #     [f"{weekday}: {', '.join(name)} for {weekday}, {name} in {dict_result}"])
+    full_result = "\n".join(
+        [f"{weekday}: {', '.join(name)}" for weekday, name in dict_result.items() if name])
 
     return full_result
 
