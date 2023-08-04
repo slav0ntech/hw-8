@@ -37,12 +37,6 @@ def get_end_point(start_point: datetime) -> datetime:
     return end_point
 
 
-def get_users_convert_date(users_date: datetime) -> datetime:
-    current_year = datetime.now().year
-    new_date = datetime.replace(users_date, year=current_year)
-    return new_date
-
-
 def get_weekday(name_user: str, year_birthday: datetime) -> dict:
     weekday = year_birthday.weekday()
 
@@ -75,8 +69,11 @@ def get_birthdays_per_week(users: list) -> str:
     # print(f"End point: {end_point}")       # print end point
 
     for user in users:
-        user_year_modify = get_users_convert_date(user['birthday'])
-        user['birthday'] = user_year_modify  # update year birthday
+        current_year = datetime.now().year
+        # new_date = datetime.replace(user['birthday'], year=current_year)
+
+        user['birthday'] = datetime.replace(
+            user['birthday'], year=current_year)  # update year birthday (change -> to current year)
 
     delta = timedelta(days=1)
 
